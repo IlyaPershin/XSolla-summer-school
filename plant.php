@@ -12,8 +12,9 @@ $result = 1;
 
 for ($i = 0; $i<count($cells)-1; $i++){
     $dist = abs($cells[$i+1] - $cells[$i]);
-    $count=floor(($dist - 1)/$distance);
-    if ($dist>=($distance*2) && $count>0){
+    $count = floor($dist/$distance);
+    $mod = $dist % $distance;
+    if ($dist>=($distance*2) && $mod!=0 && $count>0){
         $result*=$count;
     }
 }
